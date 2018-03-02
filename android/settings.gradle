@@ -1,0 +1,3 @@
+rootProject.name = 'Dialogue'
+
+include ':app'
