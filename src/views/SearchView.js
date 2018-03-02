@@ -62,12 +62,14 @@ class SearchView extends Component {
 }
 
 export default connect(
-  state => ({
+  state => {
+    console.log("STATEL",state)
+    return ({
     test: state.searchView.test,
     searchPhrase: state.searchView.searchPhrase,
     results: state.searchView.results,
     loading: state.searchView.searching
-  }),
+  })},
   dispatch => ({
     updateSearch: (text) => dispatch(updateSearch(text)),
     onSearch: (phrase) => dispatch(onSearch(phrase))

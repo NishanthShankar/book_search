@@ -14,13 +14,16 @@ import reducers from './src/reducers/'
 const store = createStore(combineReducers(reducers), applyMiddleware(thunk))
 
 import SearchView from './src/views/SearchView'
+import NoInternetBar from './src/components/NoInternetBar'
 
 export default class App extends Component {
   render() {
+    console.disableYellowBox = true
     return (
       <Provider store={store}>
         <View style={styles.container}>
           <SearchView />
+          <NoInternetBar />
         </View>
       </Provider>
     )
