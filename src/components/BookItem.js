@@ -12,6 +12,7 @@ const BookItem = (props) => {
   const {title, imageLinks, authors, description} = props
   const thumbnail = _.get(imageLinks, 'smallThumbnail')
   const authorText = authors ? `by ${authors.join(', ')}` : ''
+  console.log("IMg:", thumbnail)
   return (
     <View style={styles.container}>
       {thumbnail
@@ -36,7 +37,7 @@ const styles = StyleSheet.create({
       width: 0,
       height: 2
     },
-    shadowOpacity: 0.5,
+    shadowOpacity: 0.24,
     shadowRadius: 2,
     padding: 12,
     margin: 12,
