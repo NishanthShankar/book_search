@@ -25,6 +25,7 @@ class SearchView extends Component {
     
     const loading = this.props.loading
     const noResults = this.props.totalResults === 0
+    const EOR = this.props.totalResults < this.props.offset
     return (
       <View style={styles.container}>
         <View style={{flexDirection: 'row'}}>
@@ -52,6 +53,7 @@ class SearchView extends Component {
           keyExtractor={this._keyExtractor}
           renderItem={({item}) => <BookItem {...item} />}
         />
+        {EOR?<Text style={styles.resultsText}>No more results</Text>:null}
         
       </View>
     )
@@ -63,12 +65,12 @@ export default connect(
     test: state.searchView.test,
     searchPhrase: state.searchView.searchPhrase,
     results: state.searchView.results,
+    offset: state.searchView.offset,
     totalResults: state.searchView.total,
     loading: state.searchView.searching,
   }),
   dispatch => ({
     updateSearch: (text) => dispatch(search.updateSearch(text)),
-
     onSearch: (phrase) => dispatch(search.onSearch(phrase))
   })
 )(SearchView)

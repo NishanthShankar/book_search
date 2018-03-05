@@ -1,13 +1,14 @@
 import {
-  StyleSheet
+  StyleSheet,
+  Platform
 } from 'react-native'
 
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#ececec',
     padding: 12,
-    paddingBottom: 0
+    paddingBottom: 0,
+    marginTop: Platform.OS === 'ios' ? 26 : 0,
   },
   searchBar: {
     flex: 1,
