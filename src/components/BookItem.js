@@ -8,10 +8,36 @@ import {
 
 import _ from 'lodash'
 
+const BookItem = (props) => {
+  const {title, imageLinks, authors, description} = props
+  const thumbnail = _.get(imageLinks, 'smallThumbnail')
+  const authorText = authors ? `by ${authors.join(', ')}` : ''
+  return (
+    <View style={styles.container}>
+      {thumbnail
+        ? <Image source={{uri: thumbnail}} style={styles.image} />
+        : <View />
+      }
+      <View style={styles.textContainer}>
+        <Text style={styles.titleText}>{title}</Text>
+        <Text>{authorText}</Text>
+        <Text style={styles.descriptionText}>{description}</Text>
+      </View>
+    </View>
+  )
+}
+
 const styles = StyleSheet.create({
   container: {
     borderRadius: 4,
     elevation: 3,
+    shadowColor: '#000',
+    shadowOffset: {
+      width: 0,
+      height: 2
+    },
+    shadowOpacity: 0.5,
+    shadowRadius: 2,
     padding: 12,
     margin: 12,
     backgroundColor: 'white',
@@ -35,24 +61,5 @@ const styles = StyleSheet.create({
     fontStyle: 'italic'
   }
 })
-
-const BookItem = (props) => {
-  const {title, imageLinks, authors, description} = props
-  const thumbnail = _.get(imageLinks, 'smallThumbnail')
-  const authorText = authors ? `by ${authors.join(', ')}` : ''
-  return (
-    <View style={styles.container}>
-      {thumbnail
-        ? <Image source={{uri: thumbnail}} style={styles.image} />
-        : <View />
-      }
-      <View style={styles.textContainer}>
-        <Text style={styles.titleText}>{title}</Text>
-        <Text>{authorText}</Text>
-        <Text style={styles.descriptionText}>{description}</Text>
-      </View>
-    </View>
-  )
-}
 
 module.exports = BookItem

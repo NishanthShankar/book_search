@@ -22,7 +22,6 @@ const onSearch = () => {
     if (searching || !searchPhrase || (total && total < offset)) {
       return
     }
-    
     searchPhrase = encodeURI(searchPhrase)
     const url = `${base}?q=${searchPhrase}&maxResults=10&startIndex=${offset}`
     dispatch(ui.hideNoInternet())

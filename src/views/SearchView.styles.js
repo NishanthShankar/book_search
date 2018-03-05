@@ -17,7 +17,14 @@ const styles = StyleSheet.create({
     marginHorizontal: 12,
     flexDirection: 'row',
     backgroundColor: 'white',
-    elevation: 3
+    elevation: 3,
+    shadowColor: '#000',
+    shadowOffset: {
+      width: 0,
+      height: 2
+    },
+    shadowOpacity: 0.5,
+    shadowRadius: 2
   },
   inputStyle: {
     flex: 1,
@@ -27,11 +34,18 @@ const styles = StyleSheet.create({
     minWidth: 88,
     marginRight: 12,
     padding: 12,
-    elevation: 3,
     borderRadius: 4,
     alignItems: 'center',
     justifyContent: 'center',
-    backgroundColor: 'white'
+    backgroundColor: 'white',
+    elevation: 3,
+    shadowColor: '#000',
+    shadowOffset: {
+      width: 0,
+      height: 2
+    },
+    shadowOpacity: 0.5,
+    shadowRadius: 2
   },
   resultsText: {
     textAlign: 'center',
