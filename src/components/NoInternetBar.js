@@ -7,7 +7,7 @@ import {
 } from 'react-native'
 
 import {connect} from 'react-redux'
-import {showNoInternet, hideNoInternet} from '../actions/'
+import {ui} from '../actions/'
 
 class NoInternetBar extends React.Component {
   constructor (props) {
@@ -68,7 +68,7 @@ export default connect(
     statusText: state.ui.internetStatus,
   }),
   dispatch => ({
-    showNoInternet: () => dispatch(showNoInternet()),
-    hideNoInternet: () => dispatch(hideNoInternet())
+    showNoInternet: () => dispatch(ui.showNoInternet()),
+    hideNoInternet: () => dispatch(ui.hideNoInternet())
   })
 )(NoInternetBar)

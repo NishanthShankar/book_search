@@ -26,6 +26,9 @@ export default function searchView (state = initialState, action) {
       })
       const results = _.concat(state.results, newResults)
       const offset = state.offset + 10
+      console.log("RESULTS:", results)
+      console.log("OFFSET:", offset)
+      console.log("TOTAL:", total)
       return {
         ...state,
         results,
